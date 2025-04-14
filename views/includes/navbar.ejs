@@ -1,0 +1,67 @@
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color: white;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .btn-search:hover{
+    background-color: #fe424d;
+    color: white;
+  }
+
+  .btn-search i{
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .tax-info{
+    display:none;
+  }
+
+  .tax-toggle{
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 3.5rem;
+    padding: 1rem;
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
+    <div class="container-fluid">                 <!--navbar not moves--->
+      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/listings">Explore</a>
+          </li>
+        </ul>
+      </div>
+
+      
+
+      <div class="navbar-nav ms-auto">   <!-- ms:  margin start  -  shift to right side -->
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Add New Listings</a>
+        </li>
+
+        <% if(!currUser) { %>
+          <a class="nav-link" href="/signup"> <b> Sign Up </b> </a>
+        <a class="nav-link" href="/login"> <b> Log In </b> </a>
+        <% } %>
+        <% if(currUser) { %>
+          <a class="nav-link" href="/logout">Log Out</a>
+        <% } %>
+      </div>
+
+    </div>
+  </nav>
