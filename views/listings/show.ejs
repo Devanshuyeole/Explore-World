@@ -1,0 +1,146 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="row mt-3">
+        <div class="col-8 offset-3">
+
+            <h1>
+                <%=listing.title%>
+            </h1>
+        </div>
+
+        <div class="card col-6 offset-3 show-card">
+            <img src="<%=listing.image%>" class="card-img-top show-img" alt="listing_image">
+            <div class="card-body">
+
+                <p class="card-text">
+                    <br>
+                    <i>Owned By :<%= listing.owner.username %></i>
+                </p>
+                <br>
+
+                <p class="card-text">
+                    <%=listing.description%>
+                </p>
+                <br>
+
+                <p class="card-text">
+                    &#8377; <%=listing.price.toLocaleString("en-IN")%>
+                </p>
+                <br>
+
+                <p class="card-text">
+                    <%=listing.location%>
+                </p>
+                <br>
+
+                <p class="card-text">
+                    <%=listing.country%>
+                </p>
+            </div>
+        </div>
+
+        <br>
+
+        <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+            <div class="btns">
+                <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+
+                <form method="post" action="/listings/<%=listing._id%>?_method=DELETE">
+                    <button class="btn btn-dark offset-5">Delete</button>
+                </form>
+            </div>
+            <% } %>
+
+
+                <div class="col-8 offset-3">
+                    <hr>
+
+
+                    <% if(currUser) { %>
+                        <h1>Leave a Review</h1>
+                        <form action="/listings/<%=listing.id%>/reviews" method="post" novalidate
+                            class="needs-validation">
+
+
+                            <div class="mb-3 mt-3">
+                                <label for="rating" class="form-label">Rating</label>
+                                <div class="rating-input">
+                                    <input type="hidden" name="review[rating]" id="rating-value" value="0">
+
+                                    <i class="fa-regular fa-star star" data-value="1"></i>
+                                    <i class="fa-regular fa-star star" data-value="2"></i>
+                                    <i class="fa-regular fa-star star" data-value="3"></i>
+                                    <i class="fa-regular fa-star star" data-value="4"></i>
+                                    <i class="fa-regular fa-star star" data-value="5"></i>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 mt-3">
+                                <label for="comment" class="form-label">Comments</label>
+                                <textarea required name="review[comment]" id="comment" cols="38" rows="5"
+                                    class="form-control"></textarea>
+                                <div class="invalid-feedback">Please leave comment</div>
+                            </div>
+                            <button class="btn btn-outline-dark">Submit</button>
+                        </form>
+                        <% } %>
+
+                            <hr>
+
+                            <h1>All Reviews</h1>
+
+                            <div class="row">
+                                <% for(review of listing.reviews){ %>
+                                    <div class="review-card col-12 col-md-5 ms-md-3 mb-3">
+                                        <!---ms  : margin start-->
+                                        <div class="card-body">
+                                            <h5 class="card-title">@<%= review.author.username %>
+                                            </h5>
+                                            <div class="stars">
+                                                <% for(let i=1; i <=5; i++) { %>
+                                                    <% if(i <=review.rating) { %>
+                                                        <i class="fa-solid fa-star text-warning"></i>
+                                                        <% } else { %>
+                                                            <i class="fa-regular fa-star text-warning"></i>
+                                                            <% } %>
+                                                                <% } %>
+                                            </div>
+                                            <p class="card-text">
+                                                <%=review.comment%>
+                                            </p>
+                                        </div>
+
+                                        <% if(currUser && review.author._id.equals(currUser._id)) { %>
+                                            <form class="mb-3" method="post"
+                                                action="/listings/<%=listing._id%>/reviews/<%= review._id %>?_method=DELETE">
+                                                <button class="btn btn-sm btn-dark">Delete</button>
+                                            </form>
+                                            <% } %>
+                                    </div>
+                                    <%}%>
+
+                            </div>
+                </div>
+    </div>
+
+    <script>
+const stars = document.querySelectorAll(".rating-input .star");
+const ratingValue = document.getElementById("rating-value");
+
+stars.forEach((star) => {
+  star.addEventListener("click", () => {
+    const value = star.getAttribute("data-value");
+    ratingValue.value = value;
+
+    // Fill stars up to selected
+    stars.forEach(s => {
+      if (s.getAttribute("data-value") <= value) {
+        s.classList.remove("fa-regular");
+        s.classList.add("fa-solid", "text-warning");
+      } else {
+        s.classList.remove("fa-solid", "text-warning");
+        s.classList.add("fa-regular");
+      }
+    });
+  });
+});
+</script>

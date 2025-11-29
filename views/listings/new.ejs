@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class="col-8 offset-2"> <!---offset means space from left-->
+<h1>Create A New Listing</h1>
+    <form method="post" action="/listings" novalidate class="needs-validation">
+
+        <div class="mb-3"> <!--mb-3  :margin-bottom-3-->
+            <label for="title" class="form-label">Title</label>
+        <input required name="listing[title]" placeholder="enter title" class="form-control">
+        <div class="valid-feedback">Looks Good!</div>
+        </div>
+        <br><br>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Descriptione</label>
+            <textarea required name="listing[description]" class="form-control" placeholder="enter description"></textarea>
+            <div class="invalid-feedback">Description should be valid</div>
+        </div>
+        <br><br>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input name="listing[image]" placeholder="enter image link" type="text" class="form-control">
+        </div>
+        <br><br>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input required name="listing[price]" placeholder="enter price" class="form-control">
+            <div class="invalid-feedback">Price should be valid</div>
+        </div>
+        <br><br>
+
+        <div class="row">
+            <div class="mb-3 col-md-4"><!---md:   if form size shrink than country will be on next link -->
+                <label for="location" class="form-label">Location</label>
+                <input required name="listing[location]" placeholder="enter location" type="text" class="form-control">
+                <div class="invalid-feedback">Location should be valid</div>
+            </div>
+            <br><br>
+    
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input required name="listing[country]" placeholder="enter country" type="text" class="form-control">
+                <div class="invalid-feedback">Country should be valid</div>
+            </div>
+        </div>
+
+        <br><br>
+        <button class="btn btn-dark add-btn">Add</button>
+    </form>
+</div>
+</div>
