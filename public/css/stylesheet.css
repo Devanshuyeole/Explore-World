@@ -1,11 +1,3 @@
-/* ============================================
-   COMPLETE MOBILE-FRIENDLY STYLESHEET
-   Replace your entire stylesheet.css with this
-   ============================================ */
-
-/* ============================================
-   BASE STYLES
-   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -35,9 +27,7 @@ body {
     box-sizing: border-box;
 }
 
-/* ============================================
-   ALERT MESSAGES - FIXED
-   ============================================ */
+/* Alert */
 .flash-container {
     width: 100%;
     padding: 0;
@@ -100,9 +90,7 @@ body {
     border: 1px solid #f5c2c7;
 }
 
-/* ============================================
-   NAVBAR
-   ============================================ */
+/* NAVBAR */
 .navbar {
     height: 5rem;
     padding: 0.5rem 1rem;
@@ -122,9 +110,7 @@ body {
     font-size: 1.5rem;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+/* FOOTER */
 .f-info-links a:hover {
     text-decoration: none;
     color: #222222;
@@ -159,9 +145,7 @@ body {
     margin-right: 1rem;
 }
 
-/* ============================================
-   CARDS
-   ============================================ */
+/* CARDS */
 .card {
     border: none !important;
     margin-bottom: 2rem;
@@ -196,9 +180,7 @@ body {
     background-color: #ebebeb;
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
+/* BUTTONS */
 .add-btn {
     background-color: #fe424d !important;
     border: none !important;
@@ -209,9 +191,7 @@ body {
     border: none !important;
 }
 
-/* ============================================
-   SHOW PAGE
-   ============================================ */
+/* SHOW PAGE */
 .show-img {
     height: 30vh;
 }
@@ -225,24 +205,17 @@ body {
     padding-right: 0;
 }
 
-/* ============================================
-   REVIEW CARD
-   ============================================ */
+/* REVIEW CARD */
 .review-card {
     border: 2px solid black;
     margin-bottom: 2rem;
 }
 
-/* ============================================
-   TAX INFO
-   ============================================ */
 .tax-info {
     display: none;
 }
 
-/* ============================================
-   FORMS
-   ============================================ */
+/* FORMS */
 .form-label {
     display: block;
     margin-bottom: 0.5rem;
@@ -264,10 +237,7 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.25);
     outline: none;
 }
-
-/* ============================================
-   TABLET STYLES (768px and up)
-   ============================================ */
+/* TABLET STYLES */
 @media (min-width: 768px) {
     .container {
         padding: 0 30px;
@@ -344,9 +314,7 @@ body {
     }
 }
 
-/* ============================================
-   DESKTOP STYLES (992px and up)
-   ============================================ */
+/* DESKTOP STYLES (992px and up) */
 @media (min-width: 992px) {
     .container {
         max-width: 1200px;
@@ -366,9 +334,7 @@ body {
     }
 }
 
-/* ============================================
-   MOBILE STYLES (max 768px)
-   ============================================ */
+/*  MOBILE STYLES (max 768px) */
 @media (max-width: 768px) {
     /* Typography */
     h1 {
@@ -653,9 +619,7 @@ body {
     }
 }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
+/* UTILITY CLASSES */
 img {
     max-width: 100%;
     height: auto;
@@ -691,4 +655,5 @@ textarea:focus {
 
 .listing-link:focus {
     outline: none;
+
 }
