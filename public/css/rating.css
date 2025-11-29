@@ -282,11 +282,8 @@
   }
 }
 
-/* ------------------------------- */
 /* RESPONSIVE STAR FIX FOR MOBILE  */
-/* ------------------------------- */
 
-/* On small screens, shrink stars to 24px */
 @media (max-width: 576px) {
   
   /* Displayed rating stars */
@@ -326,3 +323,4 @@
     background-size: 24px auto !important;
   }
 }
+
